@@ -10,10 +10,21 @@ class User {
 	private $id;
 
 	function __construct( $data ) {
-		$this->name = $data["name"];
-		$this->email = $data["email"];
-		$this->veggie = $data["veggie"];
-		$this->password = $data["password"];
+		//if $data is an array, object is created with user info
+		if ( is_array( $data ) )
+		{
+			$this->name = $data["name"];
+			$this->email = $data["email"];
+			$this->veggie = $data["veggie"];
+			$this->password = $data["password"];
+		}
+		//else $data is $id
+		else
+		{
+			$this->id = $data;
+			$this->fetchById ( $this->id );
+		}
+
 
 	}
 
@@ -52,6 +63,25 @@ class User {
 								':id' => $this->id
 							 ) );
 		$affectedRows = $stmt->rowCount();
+		return TRUE;
+	}
+
+	public function fetchById( $id ) {
+		$db = DB::connect();
+
+		$stmt = $db->prepare( "SELECT * FROM user WHERE id = :id" );
+		$stmt->execute( array(  
+								':id' => $id
+							 ) );
+		if ($stmt->rowCount() == 1) {
+			$data = $stmt->fetch();
+			$this->name = $data["name"];
+			$this->email = $data["email"];
+			$this->veggie = $data["veggie"];
+			$this->password = $data["password"];
+		}
+
+		
 		return TRUE;
 	}
 

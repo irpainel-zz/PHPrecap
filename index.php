@@ -13,7 +13,10 @@ if (isset($_POST['name'])) {
 	$lastId = $user->insert();
 	$user->name = "Lucas";
 	$user->update( );
-	// echo $lastId;
+	$user2 = new User( 11 );
+	$user2->name = "Lucas";
+	$user2->update( );
+	echo $user2->name;
 
 
 }
