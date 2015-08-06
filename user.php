@@ -28,6 +28,18 @@ class User {
 
 	}
 
+	static public function fetchAll() {
+		$db = DB::connect();
+
+		$stmt = $db->query( "SELECT * FROM user" );
+		if ($stmt->rowCount() > 0) {
+			$data = $stmt->fetchAll();
+			$jsonData = json_encode( $data );
+			var_dump( $jsonData );
+		}
+		return TRUE;
+	}
+
 	public function insert() {
 		$db = DB::connect();
 

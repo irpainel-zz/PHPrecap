@@ -17,7 +17,7 @@ if (isset($_POST['name'])) {
 	$user2->name = "Lucas";
 	$user2->update( );
 	echo $user2->name;
-
+	User::fetchAll();
 
 }
 
