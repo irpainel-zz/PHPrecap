@@ -2,6 +2,8 @@
   <head>
     <!-- Material Design Lite -->
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-pink.min.css">
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -32,46 +34,75 @@
       </div>
       <main class="mdl-layout__content">
         <div class="page-content">
-          <div class="demo-grid-ruler mdl-grid">
+          <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--3-col"></div>
             <div class="mdl-cell mdl-cell--6-col content">
 
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-card mdl-shadow--3dp card-wide">
+                  <form action="" id="newUserForm">
+                    <div class="mdl-card__title">
+                      New User
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                      <!-- Fields -->
+                      
+                        <div class="mdl-textfield mdl-js-textfield">
+                          <input class="mdl-textfield__input" type="text" id="name" />
+                          <label class="mdl-textfield__label" for="name">Name...</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield">
+                          <input class="mdl-textfield__input" type="text" id="email" />
+                          <label class="mdl-textfield__label" for="email">Email...</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield">
+                          <input class="mdl-textfield__input" type="password" id="password" />
+                          <label class="mdl-textfield__label" for="password">Password...</label>
+                        </div>
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="veggie">
+                          <input type="checkbox" id="veggie" class="mdl-checkbox__input" />
+                          <span class="mdl-checkbox__label">Vegetarian</span>
+                        </label>
+                    </div>
+                    <div class="mdl-card__actions">
+                      <!-- Colored raised button -->
+                      <submit class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="newUserButton">
+                        Submit
+                      </submit>
 
-              <div class="mdl-card mdl-shadow--4dp">
-                <form action="">
-                  <div class="mdl-card__title">
-                    New User
-                  </div>
-                  <div class="mdl-card__supporting-text">
-                    <!-- Fields -->
-                    
-                      <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="text" id="name" />
-                        <label class="mdl-textfield__label" for="name">Name...</label>
-                      </div>
-                      <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="text" id="email" />
-                        <label class="mdl-textfield__label" for="email">Email...</label>
-                      </div>
-                      <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="text" id="password" />
-                        <label class="mdl-textfield__label" for="password">Password...</label>
-                      </div>
-                      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="veggie">
-                        <input type="checkbox" id="veggie" class="mdl-checkbox__input" />
-                        <span class="mdl-checkbox__label">Vegetarian</span>
-                      </label>
-                  </div>
-                  <div class="mdl-card__actions">
-                    <!-- Colored raised button -->
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-                      Submit
-                    </button>
+                    </div>
+                  </form>
+                </div>   
+              </div>
+              <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-card mdl-shadow--3dp card-wide">
+                  <form action="" id="loginForm">
+                    <div class="mdl-card__title">
+                      Login
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                      <!-- Fields -->
+                        <div class="mdl-textfield mdl-js-textfield">
+                          <input class="mdl-textfield__input" type="text" id="email" />
+                          <label class="mdl-textfield__label" for="email">Email...</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield">
+                          <input class="mdl-textfield__input" type="password" id="password" />
+                          <label class="mdl-textfield__label" for="password">Password...</label>
+                        </div>
+                    </div>
+                    <div class="mdl-card__actions">
+                      <!-- Colored raised button -->
+                      <submit class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="loginButton">
+                        GO!
+                      </submit>
 
-                  </div>
-                </form>
-              </div>   
-
+                    </div>
+                  </form>
+                </div>   
+              </div>
+            </div>
             </div>
 
             <div class="mdl-cell mdl-cell--3-col"></div>

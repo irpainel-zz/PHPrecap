@@ -1,6 +1,6 @@
 <?php
 
-include ("db.php");
+include ("include/db.php");
 
 class User {
 	private $name;
@@ -13,10 +13,10 @@ class User {
 		//if $data is an array, object is created with user info
 		if ( is_array( $data ) )
 		{
-			$this->name = $data["name"];
-			$this->email = $data["email"];
-			$this->veggie = $data["veggie"];
-			$this->password = $data["password"];
+			$this->name = (isset($data["name"])?$data["name"]:NULL);
+			$this->email = (isset($data["email"])?$data["email"]:NULL);
+			$this->veggie = (isset($data["veggie"])?$data["veggie"]:NULL);
+			$this->password = (isset($data["password"])?$data["password"]:NULL);
 		}
 		//else $data is $id
 		else
@@ -35,9 +35,29 @@ class User {
 		if ($stmt->rowCount() > 0) {
 			$data = $stmt->fetchAll();
 			$jsonData = json_encode( $data );
-			var_dump( $jsonData );
+			return $jsonData ;
 		}
-		return TRUE;
+		// return "Zero Records";
+	}
+
+	public function authAdmin( ) {
+		$db = DB::connect();
+
+		$stmt = $db->prepare( "SELECT * FROM user WHERE email = :email AND password = :password AND veggie = 1" );
+		$stmt->execute( array(  ':email' => $this->email,
+								':password' => $this->password
+							 ) );
+		if ($stmt->rowCount() == 1) {
+			$data = $stmt->fetch();
+			$this->id = $data['id'];
+			$this->name = $data['name'];
+			$this->veggie = 1;
+			// $jsonData = json_encode( $data );
+			// echo $jsonData ;
+			return TRUE;
+		}
+		return FALSE;
+
 	}
 
 	public function insert() {
